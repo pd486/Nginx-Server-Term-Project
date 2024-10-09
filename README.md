@@ -11,19 +11,23 @@ touch Dockerfile
 nano Docker
 
 # Add Text to Nano:
-# Use the official Ubuntu as a parent image
+"# Use the official Ubuntu as a parent image
 FROM ubuntu:latest
-# Set environment variables to prevent interactive prompts during      installation
+
+# Set environment variables to prevent interactive prompts during installation
 ENV DEBIAN_FRONTEND=noninteractive
+
 # Update the package list and install Nginx
 RUN apt-get update && \
     apt-get install -y nginx && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+    
 # Expose port 80 to the outside world
 EXPOSE 80
+
 # Start Nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]"
 
 # Exit out of nano
 Control x, type yes and hit enter
